@@ -22,6 +22,21 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
-h1 {
-    color: red;
+.board {
+  position: fixed;
+  inset: 0px;
+  width: 12rem;
+  height: 5rem;
+  max-width: 100vw;
+  max-height: 100dvh;
+  margin: auto;
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+}
+
+.tile {
+  border: 1px solid black;
 }
