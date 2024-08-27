@@ -66,6 +66,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #F4F4F6;
+  gap: 20px;
 }
 
 .container {
@@ -95,4 +96,17 @@ body {
 
 .rounded {
   border-radius: 10px;
+}
+
+.circle {
+  background-image: url(icons/circle.svg);
+  background-size: 110%;
+  background-position: center;
+}
+
+.cross {
+  background-image: url(icons/cross.svg);
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
 }

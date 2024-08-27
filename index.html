@@ -7,23 +7,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <div class="container">
         <div class="header rounded">
             <h1>Tic Tac Toe</h1>
         </div>
         <div class="wrapper rounded">
+            <div><h2 id="activePlayer">.</h2></div>
+            <button id="start">Start</button>
             <div class="board">
-                <div class="tile" data-row="1" data-column="1" data-symbol=""></div>
-                <div class="tile" data-row="1" data-column="1" data-symbol=""></div>
-                <div class="tile" data-row="1" data-column="1" data-symbol=""></div>
-                <div class="tile" data-row="1" data-column="1" data-symbol=""></div>
-                <div class="tile" data-row="1" data-column="1" data-symbol=""></div>
-                <div class="tile" data-row="1" data-column="1" data-symbol=""></div>
-                <div class="tile" data-row="1" data-column="1" data-symbol=""></div>
-                <div class="tile" data-row="1" data-column="1" data-symbol=""></div>
-                <div class="tile" data-row="1" data-column="1" data-symbol=""></div>
+                <div class="tile" data-row="1" data-column="1"></div>
+                <div class="tile" data-row="1" data-column="2"></div>
+                <div class="tile" data-row="1" data-column="3"></div>
+                <div class="tile" data-row="2" data-column="1"></div>
+                <div class="tile" data-row="2" data-column="2"></div>
+                <div class="tile" data-row="2" data-column="3"></div>
+                <div class="tile" data-row="3" data-column="1"></div>
+                <div class="tile" data-row="3" data-column="2"></div>
+                <div class="tile" data-row="3" data-column="3"></div>
             </div>
+            <div class="winenr">.</div>
         </div>
         <div class="footer rounded"><h3>©filipkk78</h3></div>
     </div>
