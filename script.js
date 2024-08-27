@@ -125,6 +125,8 @@ function resetBoard() {
         row3: ["E", "E", "E"],
     }
     console.clear();
+    const winDisplay = document.querySelector("#winner");
+    winDisplay.style.color = "#d6d7da";
     const tiles = Array.from(document.querySelectorAll(".tile"));
     tiles.forEach((tile) => {
     tile.classList.remove("circle");
