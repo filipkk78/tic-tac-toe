@@ -13,8 +13,11 @@
             <h1>Tic Tac Toe</h1>
         </div>
         <div class="wrapper rounded">
-            <div><h2 id="activePlayer">.</h2></div>
-            <button id="start">Start</button>
+            <h2 id="activePlayer" class="placeholder">.</h2>
+            <div class="buttons">
+                <button id="start">Play</button>
+                <button id="reset">Reset</button>
+            </div>
             <div class="board">
                 <div class="tile" data-row="1" data-column="1"></div>
                 <div class="tile" data-row="1" data-column="2"></div>
@@ -26,9 +29,9 @@
                 <div class="tile" data-row="3" data-column="2"></div>
                 <div class="tile" data-row="3" data-column="3"></div>
             </div>
-            <div class="winenr">.</div>
+            <h2 id="winner" class="placeholder">.</h2>
         </div>
-        <div class="footer rounded"><h3>©filipkk78</h3></div>
+        <div class="footer rounded"><h3>© filipkk78</h3></div>
     </div>
 </body>
 </html>

@@ -52,6 +52,7 @@ startBtn.addEventListener("click", function () {
     }
 
     const uiBoard = document.querySelector(".board");
+    let counter = 0;
 
     uiBoard.addEventListener("click",(event) => { 
         chosenRow = event.target.dataset.row;
@@ -94,15 +95,28 @@ startBtn.addEventListener("click", function () {
                 ) {
                     winner = players[1].name;
                 }
-            if(winner!=0) {
+            if(winner != 0) {
+                const winnerDisplay = document.querySelector("#winner");
+                winnerDisplay.textContent = `${winner} wins!`;
+                winnerDisplay.style.color = "black";
                 console.log(`${winner} wins!`);
+                winner = 0;
+                counter = 0;
+                return;
             }
+        }
+        counter++;
+        console.log(counter)
+        if(counter==9) {
+            resetBoard();
+            return;    
         }
         winCheck();
         switchPlayerTurn();
+})}, false);
 
-    })}, false);
-
+const resetBtn = document.querySelector("#reset")
+resetBtn.addEventListener("click", resetBoard);
 
 function resetBoard() {
     gameBoard = {
@@ -116,4 +130,5 @@ function resetBoard() {
     tile.classList.remove("circle");
     tile.classList.remove("cross")
     })
+    startBtn.disabled = "true";
 }
