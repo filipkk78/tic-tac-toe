@@ -51,7 +51,7 @@ startBtn.addEventListener("click", function () {
         let selectedColumn = column-1;
         destinationTile = gameBoard[`row${selectedRow}`].at(selectedColumn);
         if (destinationTile!="E") {
-        console.log(`This tile is already occupied by ${destinationTile}`);
+        // console.log(`This tile is already occupied by ${destinationTile}`);
         switchPlayerTurn()
         return;
         }
@@ -78,12 +78,12 @@ startBtn.addEventListener("click", function () {
             tile.dataset.full = "true"
         }
         tile.classList.add()
-        console.log(`Row: ${chosenRow}, Column: ${chosenColumn}`);
+        // console.log(`Row: ${chosenRow}, Column: ${chosenColumn}`);
         chooseTile(chosenRow, chosenColumn);
-        console.log(gameBoard.row1);
-        console.log(gameBoard.row2);
-        console.log(gameBoard.row3);
-        console.log("//////////////////");
+        // console.log(gameBoard.row1);
+        // console.log(gameBoard.row2);
+        // console.log(gameBoard.row3);
+        // console.log("//////////////////");
         let winner = 0;
         function winCheck() {
                 if(
@@ -116,16 +116,20 @@ startBtn.addEventListener("click", function () {
                 winnerDisplay.style.color = "black";
                 activePlayerDisplay.classList.remove(...activePlayerDisplay.classList);
                 activePlayerDisplay.classList.add("placeholder");
-                console.log(`${winner} wins!`);
+                // console.log(`${winner} wins!`);
                 winner = 0;
                 counter = 0;
                 tiles.forEach((tile) => {
                     tile.dataset.full = "true";
                 })
+                resetBtn.style.width = "120px";
+                setTimeout(() => {
+                    resetBtn.textContent = "Play again";
+                }, 85);
                 return true;
             }
         }
-        console.log(counter)
+        // console.log(counter)
         if(counter==9) {
             if(winCheck()==true) {
                 return;
@@ -149,7 +153,7 @@ function resetBoard() {
         row2: ["E", "E", "E"],
         row3: ["E", "E", "E"],
     }
-    console.clear();
+    // console.clear();
     counter = 0;
     const winDisplay = document.querySelector("#winner");
     winDisplay.style.color = "#d6d7da";
