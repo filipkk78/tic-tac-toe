@@ -133,8 +133,6 @@ startBtn.addEventListener("click", function () {
                 setTimeout(() => {
                     resetBtn.textContent = "Play again";
                 }, 85);
-                console.log(players[0].score);
-                console.log(players[1].score);
                 return true;
             }
         }
