@@ -60,10 +60,10 @@ startBtn.addEventListener("click", function () {
     tiles.forEach((tile) => { tile.addEventListener ("click", function play() {
         chosenRow = tile.dataset.row;
         chosenColumn = tile.dataset.column;
-        if(activePlayer==players[0]&& tile.dataset.full=="false") {
+        if(activePlayer==players[0] && tile.dataset.full=="false") {
             tile.classList.add("cross")
             tile.dataset.full = "true"
-        } else if(activePlayer==players[1]) {
+        } else if(activePlayer==players[1] && tile.dataset.full=="false") {
             tile.classList.add("circle")
             tile.dataset.full = "true"
         }
@@ -107,6 +107,9 @@ startBtn.addEventListener("click", function () {
                 console.log(`${winner} wins!`);
                 winner = 0;
                 counter = 0;
+                tiles.forEach((tile) => {
+                    tile.dataset.full = "true";
+                })
                 return;
             }
         }
@@ -137,6 +140,7 @@ function resetBoard() {
     tiles.forEach((tile) => {
     tile.classList.remove("circle");
     tile.classList.remove("cross")
+    tile.dataset.full = "false";
     })
     startBtn.disabled = "true";
 }
