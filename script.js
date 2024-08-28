@@ -5,6 +5,7 @@ let gameBoard = {
 }
 
 const startBtn = document.querySelector("#start");
+const btnContainer = document.querySelector(".buttons");
 
 startBtn.addEventListener("click", function () {
     const players = [
@@ -18,21 +19,26 @@ startBtn.addEventListener("click", function () {
         }
     ]
 
+    btnContainer.removeChild(startBtn);
+    resetBtn.style.display = "block"
 
     const activePlayerDisplay = document.querySelector("#activePlayer");
     let activePlayer = players[0];
     activePlayerDisplay.textContent = "Now playing: player X";
-    activePlayerDisplay.style.color = "#0008FF"
+    activePlayerDisplay.classList.remove(...activePlayerDisplay.classList);
+    activePlayerDisplay.classList.add("blue");
 
     const switchPlayerTurn = () => {
         if(activePlayer==players[0]) {
             activePlayer = players[1];
             activePlayerDisplay.textContent = "Now playing: player O";
-            activePlayerDisplay.style.color = "#FF0000"
+            activePlayerDisplay.classList.remove(...activePlayerDisplay.classList);
+            activePlayerDisplay.classList.add("red");
         } else if(activePlayer==players[1]) {
             activePlayer = players[0];
             activePlayerDisplay.textContent = "Now playing: player X";
-            activePlayerDisplay.style.color = "#0008FF"
+            activePlayerDisplay.classList.remove(...activePlayerDisplay.classList);
+            activePlayerDisplay.classList.add("blue");
         }
     }
 
@@ -60,10 +66,13 @@ startBtn.addEventListener("click", function () {
     tiles.forEach((tile) => { tile.addEventListener ("click", function play() {
         chosenRow = tile.dataset.row;
         chosenColumn = tile.dataset.column;
-        if(activePlayer==players[0] && tile.dataset.full=="false") {
+        if(tile.dataset.full=="true") {
+            return
+        }
+        if(activePlayer==players[0]) {
             tile.classList.add("cross")
             tile.dataset.full = "true"
-        } else if(activePlayer==players[1] && tile.dataset.full=="false") {
+        } else if(activePlayer==players[1]) {
             tile.classList.add("circle")
             tile.dataset.full = "true"
         }
@@ -104,20 +113,30 @@ startBtn.addEventListener("click", function () {
                 const winnerDisplay = document.querySelector("#winner");
                 winnerDisplay.textContent = `${winner} wins!`;
                 winnerDisplay.style.color = "black";
+                activePlayerDisplay.classList.remove(...activePlayerDisplay.classList);
+                activePlayerDisplay.classList.add("placeholder");
                 console.log(`${winner} wins!`);
                 winner = 0;
                 counter = 0;
                 tiles.forEach((tile) => {
                     tile.dataset.full = "true";
                 })
-                return;
+                return true;
             }
         }
-        // counter++;
         console.log(counter)
         if(counter==9) {
-            resetBoard();
-            return;   
+            if(winCheck()==true) {
+                return;
+            }
+            const winDisp = document.querySelector("#winner");
+            winDisp.textContent = "Draw";
+            winDisp.style.color = "black";
+            setTimeout(() => {
+                resetBoard();
+                return;  
+            }, 3000);
+             
         }
         winCheck();
         switchPlayerTurn();

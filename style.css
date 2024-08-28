@@ -114,6 +114,17 @@ body {
   border: none;
   padding: 10px 20px;
   width: 80px;
-  border-radius: 20px;
-  
+  border-radius: 20px; 
+}
+
+.buttons #reset {
+  display: none;
+}
+
+.blue {
+  color: #0008FF;
+}
+
+.red {
+  color: #FF0000;
 }
