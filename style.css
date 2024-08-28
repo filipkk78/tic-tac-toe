@@ -89,6 +89,8 @@ body {
   background-image: url(icons/circle.svg);
   background-size: 110%;
   background-position: center;
+  animation-name: markpop;
+  animation-duration: 0.5s;
 }
 
 .cross {
@@ -96,6 +98,17 @@ body {
   background-size: 90%;
   background-repeat: no-repeat;
   background-position: center;
+  animation-name: markpop;
+  animation-duration: 0.5s;
+}
+
+@keyframes markpop {
+  0% {
+    scale: 0.5;
+  }
+  100% {
+    scale: 1;
+  }
 }
 
 .placeholder {
@@ -114,7 +127,16 @@ body {
   border: none;
   padding: 10px 20px;
   width: 80px;
-  border-radius: 20px; 
+  border-radius: 20px;; 
+  transition: 150ms ease;
+}
+
+.buttons button:hover {
+  scale: 1.2;
+}
+
+.buttons button:active {
+  background-color: #8bbb38;
 }
 
 .buttons #reset {
@@ -128,3 +150,4 @@ body {
 .red {
   color: #FF0000;
 }
+

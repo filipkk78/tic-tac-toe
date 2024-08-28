@@ -134,6 +134,7 @@ startBtn.addEventListener("click", function () {
             winDisp.style.color = "black";
             setTimeout(() => {
                 resetBoard();
+                counter = 0;
                 return;  
             }, 3000);
              
@@ -153,6 +154,7 @@ function resetBoard() {
         row3: ["E", "E", "E"],
     }
     console.clear();
+    counter = 0;
     const winDisplay = document.querySelector("#winner");
     winDisplay.style.color = "#d6d7da";
     const tiles = Array.from(document.querySelectorAll(".tile"));
