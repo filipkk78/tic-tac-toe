@@ -18,6 +18,7 @@ startBtn.addEventListener("click", function () {
         }
     ]
 
+
     const activePlayerDisplay = document.querySelector("#activePlayer");
     let activePlayer = players[0];
     activePlayerDisplay.textContent = "Now playing: player X";
@@ -46,6 +47,7 @@ startBtn.addEventListener("click", function () {
         switchPlayerTurn()
         return;
         }
+        counter++;
         let modifiedArray = gameBoard[`row${selectedRow}`].with(selectedColumn, activePlayer.symbol);
         gameBoard[`row${selectedRow}`] = modifiedArray;
         return gameBoard;
@@ -54,15 +56,18 @@ startBtn.addEventListener("click", function () {
     const uiBoard = document.querySelector(".board");
     let counter = 0;
 
-    uiBoard.addEventListener("click",(event) => { 
-        chosenRow = event.target.dataset.row;
-        chosenColumn = event.target.dataset.column;
-        if(activePlayer==players[0]) {
-            event.target.classList.add("cross")
+    const tiles = Array.from(document.querySelectorAll(".tile"));
+    tiles.forEach((tile) => { tile.addEventListener ("click", function play() {
+        chosenRow = tile.dataset.row;
+        chosenColumn = tile.dataset.column;
+        if(activePlayer==players[0]&& tile.dataset.full=="false") {
+            tile.classList.add("cross")
+            tile.dataset.full = "true"
         } else if(activePlayer==players[1]) {
-            event.target.classList.add("circle")
+            tile.classList.add("circle")
+            tile.dataset.full = "true"
         }
-        event.target.classList.add()
+        tile.classList.add()
         console.log(`Row: ${chosenRow}, Column: ${chosenColumn}`);
         chooseTile(chosenRow, chosenColumn);
         console.log(gameBoard.row1);
@@ -105,15 +110,16 @@ startBtn.addEventListener("click", function () {
                 return;
             }
         }
-        counter++;
+        // counter++;
         console.log(counter)
         if(counter==9) {
             resetBoard();
-            return;    
+            return;   
         }
         winCheck();
         switchPlayerTurn();
-})}, false);
+    })}
+)})
 
 const resetBtn = document.querySelector("#reset")
 resetBtn.addEventListener("click", resetBoard);
