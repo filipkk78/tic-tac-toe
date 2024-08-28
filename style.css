@@ -154,3 +154,14 @@ body {
 .red {
   color: #FF0000;
 }
+
+.score-win {
+  display: flex;
+}
+
+.win-display {
+  display: flex;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+}

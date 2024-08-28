@@ -14,15 +14,22 @@ startBtn.addEventListener("click", function () {
         {
             name: "playerX",
             symbol: "X",
+            score: 0
         },
         {
             name: "playerO",
             symbol: "O",
+            score: 0
         }
     ]
 
     btnContainer.removeChild(startBtn);
-    resetBtn.style.display = "block"   
+    resetBtn.style.display = "block"  
+    
+    const scoreX = document.querySelector("#scoreX");
+    scoreX.textContent = players[0].score;
+    const scoreO = document.querySelector("#scoreO");
+    scoreO.textContent = players[1].score;
 
     const activePlayerDisplay = document.querySelector("#activePlayer");
     let activePlayer = players[0];
@@ -105,6 +112,13 @@ startBtn.addEventListener("click", function () {
                     winner = players[1].name;
                 }
             if(winner != 0) {
+                if(winner == players[0].name) {
+                    players[0].score++;
+                    scoreX.textContent = players[0].score;
+                } else if(winner == players[1].name) {
+                    players[1].score++;
+                    scoreO.textContent =players[1].score;
+                }
                 const winnerDisplay = document.querySelector("#winner");
                 winnerDisplay.textContent = `${winner} wins!`;
                 winnerDisplay.style.color = "black";
@@ -119,6 +133,8 @@ startBtn.addEventListener("click", function () {
                 setTimeout(() => {
                     resetBtn.textContent = "Play again";
                 }, 85);
+                console.log(players[0].score);
+                console.log(players[1].score);
                 return true;
             }
         }
