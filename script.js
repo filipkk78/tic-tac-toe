@@ -4,6 +4,8 @@ let gameBoard = {
     row3: ["E", "E", "E"],
 }
 
+let counter = 0;
+
 const startBtn = document.querySelector("#start");
 const btnContainer = document.querySelector(".buttons");
 
@@ -60,7 +62,6 @@ startBtn.addEventListener("click", function () {
     }
 
     const uiBoard = document.querySelector(".board");
-    let counter = 0;
 
     const tiles = Array.from(document.querySelectorAll(".tile"));
     tiles.forEach((tile) => { tile.addEventListener ("click", function play() {
@@ -132,12 +133,7 @@ startBtn.addEventListener("click", function () {
             const winDisp = document.querySelector("#winner");
             winDisp.textContent = "Draw";
             winDisp.style.color = "black";
-            setTimeout(() => {
-                resetBoard();
-                counter = 0;
-                return;  
-            }, 3000);
-             
+            return;  
         }
         winCheck();
         switchPlayerTurn();
