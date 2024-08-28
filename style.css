@@ -91,6 +91,8 @@ body {
   background-position: center;
   animation-name: markpop;
   animation-duration: 0.5s;
+  height: 100%;
+  width: 100%;
 }
 
 .cross {
@@ -100,6 +102,8 @@ body {
   background-position: center;
   animation-name: markpop;
   animation-duration: 0.5s;
+  height: 100%;
+  width: 100%;
 }
 
 @keyframes markpop {

@@ -70,10 +70,10 @@ startBtn.addEventListener("click", function () {
             return
         }
         if(activePlayer==players[0]) {
-            tile.classList.add("cross")
+            tile.firstChild.classList.add("cross")
             tile.dataset.full = "true"
         } else if(activePlayer==players[1]) {
-            tile.classList.add("circle")
+            tile.firstChild.classList.add("circle")
             tile.dataset.full = "true"
         }
         tile.classList.add()
@@ -159,9 +159,9 @@ function resetBoard() {
     winDisplay.style.color = "#d6d7da";
     const tiles = Array.from(document.querySelectorAll(".tile"));
     tiles.forEach((tile) => {
-    tile.classList.remove("circle");
-    tile.classList.remove("cross")
-    tile.dataset.full = "false";
+    tile.firstChild.classList.remove("circle");
+    tile.firstChild.classList.remove("cross")
+    tile.dataset.full = "false";;
     })
     startBtn.disabled = "true";
 }
